@@ -1,0 +1,8 @@
+{
+  "name": "graphql-server-step-by-step",
+  "description": "🥜🥜🥜 GraphQLサーバの構築を、ステップバイステップで進めていく！",
+  "repository": "https://github.com/osawa-koki/graphql-server-step-by-step.git",
+  "author": "osawa-koki <koki@osawa.dev>",
+  "license": "Apache-2.0",
+  "private": false
+}

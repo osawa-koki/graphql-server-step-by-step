@@ -14,3 +14,8 @@
 ここでは、JavaScriptで最も簡単なGraphQLサーバを構築します。  
 
 ![Step1](./docs/img/step1.webp)  
+
+## Step2 - GraphQLサーバをTypeScriptに変換してみよう
+
+ここでは、JavaScriptで構築したGraphQLサーバをTypeScriptに変換してみます。  
+GraphQLはサーバとクライアントのスキーマ(型定義)を簡単に同期できるので、TypeScriptの強みを活かして開発を進めていきます。  

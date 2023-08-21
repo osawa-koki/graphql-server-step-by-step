@@ -1,22 +1,19 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 
+import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
+import { loadSchemaSync } from '@graphql-tools/load';
+import { addResolversToSchema } from '@graphql-tools/schema';
+
 (async () => {
   interface Book {
     title: string;
     author: string;
   }
 
-  const typeDefs = `
-    type Book {
-      title: String
-      author: String
-    }
-
-    type Query {
-      books: [Book]
-    }
-  `;
+  const schema = loadSchemaSync('./schemas/**/*.graphql', {
+    loaders: [new GraphQLFileLoader()],
+  });
 
   const books: Book[] = [
     {
@@ -35,10 +32,8 @@ import { startStandaloneServer } from '@apollo/server/standalone';
     },
   };
 
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-  });
+  const schemaWithResolvers = addResolversToSchema({ schema, resolvers });
+  const server = new ApolloServer({ schema: schemaWithResolvers });
 
   const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 },

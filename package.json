@@ -4,5 +4,9 @@
   "repository": "https://github.com/osawa-koki/graphql-server-step-by-step.git",
   "author": "osawa-koki <koki@osawa.dev>",
   "license": "Apache-2.0",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "@apollo/server": "^4.9.1",
+    "graphql": "^16.8.0"
+  }
 }

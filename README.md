@@ -8,6 +8,7 @@
 各タグの内容は、以下の通りです。  
 
 - step-1: 最も簡単なGraphQLサーバの構築。
+- step-2: GraphQLサーバをTypeScriptに変換してみよう。
 
 ## Step1 - 最も簡単なGraphQLサーバの構築
 

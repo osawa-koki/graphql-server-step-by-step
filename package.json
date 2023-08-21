@@ -5,8 +5,16 @@
   "author": "osawa-koki <koki@osawa.dev>",
   "license": "Apache-2.0",
   "private": false,
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./index.js",
+    "start": "node ./index.js"
+  },
   "dependencies": {
     "@apollo/server": "^4.9.1",
     "graphql": "^16.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

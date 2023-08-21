@@ -4,13 +4,9 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
 import { loadSchemaSync } from '@graphql-tools/load';
 import { addResolversToSchema } from '@graphql-tools/schema';
+import { Book, Resolvers } from './src/generated/graphql';
 
 (async () => {
-  interface Book {
-    title: string;
-    author: string;
-  }
-
   const schema = loadSchemaSync('./schemas/**/*.graphql', {
     loaders: [new GraphQLFileLoader()],
   });
@@ -26,7 +22,7 @@ import { addResolversToSchema } from '@graphql-tools/schema';
     },
   ];
 
-  const resolvers = {
+  const resolvers: Resolvers = {
     Query: {
       books: (): Book[] => books,
     },

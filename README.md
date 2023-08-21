@@ -9,6 +9,7 @@
 
 - step-1: 最も簡単なGraphQLサーバの構築。
 - step-2: GraphQLサーバをTypeScriptに変換してみよう。
+- step-3: GraphQLスキーマを外部ファイル化する！
 
 ## Step1 - 最も簡単なGraphQLサーバの構築
 
@@ -20,3 +21,8 @@
 
 ここでは、JavaScriptで構築したGraphQLサーバをTypeScriptに変換してみます。  
 GraphQLはサーバとクライアントのスキーマ(型定義)を簡単に同期できるので、TypeScriptの強みを活かして開発を進めていきます。  
+
+## Step3 - GraphQLスキーマを外部ファイル化する
+
+ここでは、GraphQLスキーマを外部ファイル化してみます。  
+GraphQLのスキーマ定義は特定のディレクトリ内にまとめて、管理しましょう！  

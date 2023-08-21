@@ -5,10 +5,11 @@
   "author": "osawa-koki <koki@osawa.dev>",
   "license": "Apache-2.0",
   "private": false,
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "dev": "nodemon --ext ts --exec ts-node ./index.ts",
-    "start": "ts-node ./index.ts"
+    "dev": "nodemon --ext ts --exec ts-node --esm ./index.ts",
+    "start": "ts-node ./index.ts",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@apollo/server": "^4.9.1",

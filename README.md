@@ -10,6 +10,7 @@
 - step-1: 最も簡単なGraphQLサーバの構築。
 - step-2: GraphQLサーバをTypeScriptに変換してみよう。
 - step-3: GraphQLスキーマを外部ファイル化する！
+- step-4: GraphQLのスキーマ定義からTypeScriptの型定義を自動生成しよう！
 
 ## Step1 - 最も簡単なGraphQLサーバの構築
 
@@ -26,3 +27,9 @@ GraphQLはサーバとクライアントのスキーマ(型定義)を簡単に�
 
 ここでは、GraphQLスキーマを外部ファイル化してみます。  
 GraphQLのスキーマ定義は特定のディレクトリ内にまとめて、管理しましょう！  
+
+## Step4 - GraphQLのスキーマ定義からTypeScriptの型定義を自動生成しよう
+
+ここでは、GraphQLのスキーマ定義からTypeScriptの型定義を自動生成してみます。  
+GraphQLで定義されたスキーマをベースに、TypeScriptの型定義を自動生成することで、型定義の手間を省くことができます。  
+また、型定義のミスを防ぐことができるので、安心して開発を進めることができます。  

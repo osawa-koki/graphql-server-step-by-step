@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "nodemon --ext ts --exec ts-node --esm ./index.ts",
     "start": "ts-node ./index.ts",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@apollo/server": "^4.9.1",
@@ -20,8 +21,13 @@
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/typescript": "4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
+    "@graphql-codegen/typescript-resolvers": "4.0.1",
     "@types/node": "^20.5.1",
     "nodemon": "^3.0.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "@graphql-codegen/introspection": "4.0.0"
   }
 }

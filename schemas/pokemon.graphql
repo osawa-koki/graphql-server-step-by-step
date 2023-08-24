@@ -1,0 +1,11 @@
+type Pokemon {
+  id: ID!
+  name: String!
+  types: [String]!
+  hp: Int!
+  atk: Int!
+  def: Int!
+  spatk: Int!
+  spdef: Int!
+  spd: Int!
+}

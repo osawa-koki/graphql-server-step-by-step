@@ -15,15 +15,22 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
-export type Book = {
-  __typename?: 'Book';
-  author?: Maybe<Scalars['String']['output']>;
-  title?: Maybe<Scalars['String']['output']>;
+export type Pokemon = {
+  __typename?: 'Pokemon';
+  atk: Scalars['Int']['output'];
+  def: Scalars['Int']['output'];
+  hp: Scalars['Int']['output'];
+  id: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
+  spatk: Scalars['Int']['output'];
+  spd: Scalars['Int']['output'];
+  spdef: Scalars['Int']['output'];
+  types: Array<Maybe<Scalars['String']['output']>>;
 };
 
 export type Query = {
   __typename?: 'Query';
-  books?: Maybe<Array<Maybe<Book>>>;
+  pokemons?: Maybe<Array<Maybe<Pokemon>>>;
 };
 
 
@@ -97,32 +104,43 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  Book: ResolverTypeWrapper<Book>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
+  ID: ResolverTypeWrapper<Scalars['ID']['output']>;
+  Int: ResolverTypeWrapper<Scalars['Int']['output']>;
+  Pokemon: ResolverTypeWrapper<Pokemon>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  Book: Book;
   Boolean: Scalars['Boolean']['output'];
+  ID: Scalars['ID']['output'];
+  Int: Scalars['Int']['output'];
+  Pokemon: Pokemon;
   Query: {};
   String: Scalars['String']['output'];
 };
 
-export type BookResolvers<ContextType = any, ParentType extends ResolversParentTypes['Book'] = ResolversParentTypes['Book']> = {
-  author?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+export type PokemonResolvers<ContextType = any, ParentType extends ResolversParentTypes['Pokemon'] = ResolversParentTypes['Pokemon']> = {
+  atk?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  def?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  hp?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  spatk?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  spd?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  spdef?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  books?: Resolver<Maybe<Array<Maybe<ResolversTypes['Book']>>>, ParentType, ContextType>;
+  pokemons?: Resolver<Maybe<Array<Maybe<ResolversTypes['Pokemon']>>>, ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = any> = {
-  Book?: BookResolvers<ContextType>;
+  Pokemon?: PokemonResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };
 

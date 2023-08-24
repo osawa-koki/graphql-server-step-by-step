@@ -1,30 +1,23 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 
+import fs from 'fs/promises';
+
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
 import { loadSchemaSync } from '@graphql-tools/load';
 import { addResolversToSchema } from '@graphql-tools/schema';
-import { Book, Resolvers } from './src/generated/graphql';
+import { Pokemon, Resolvers } from './src/generated/graphql';
 
 (async () => {
   const schema = loadSchemaSync('./schemas/**/*.graphql', {
     loaders: [new GraphQLFileLoader()],
   });
 
-  const books: Book[] = [
-    {
-      title: 'The Awakening',
-      author: 'Kate Chopin',
-    },
-    {
-      title: 'City of Glass',
-      author: 'Paul Auster',
-    },
-  ];
+  const pokemons: Pokemon[] = await fs.readFile('./data/pokemons.json', 'utf-8').then((data) => JSON.parse(data));
 
   const resolvers: Resolvers = {
     Query: {
-      books: (): Book[] => books,
+      pokemons: (): Pokemon[] => pokemons,
     },
   };
 

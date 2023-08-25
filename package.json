@@ -27,7 +27,7 @@
     "@graphql-codegen/typescript-resolvers": "4.0.1",
     "@types/node": "^20.5.1",
     "nodemon": "^3.0.1",
-    "typescript": "^5.1.6",
+    "typescript": "^5.2.2",
     "@graphql-codegen/introspection": "4.0.0"
   }
 }

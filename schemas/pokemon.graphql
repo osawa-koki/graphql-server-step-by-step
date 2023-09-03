@@ -9,3 +9,20 @@ type Pokemon {
   spdef: Int!
   spd: Int!
 }
+
+input PokemonFilter {
+  name: String
+  types: [String]
+  hp_min: Int
+  hp_max: Int
+  atk_min: Int
+  atk_max: Int
+  def_min: Int
+  def_max: Int
+  spatk_min: Int
+  spatk_max: Int
+  spdef_min: Int
+  spdef_max: Int
+  spd_min: Int
+  spd_max: Int
+}

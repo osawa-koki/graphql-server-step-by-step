@@ -28,9 +28,31 @@ export type Pokemon = {
   types: Array<Maybe<Scalars['String']['output']>>;
 };
 
+export type PokemonFilter = {
+  atk_max?: InputMaybe<Scalars['Int']['input']>;
+  atk_min?: InputMaybe<Scalars['Int']['input']>;
+  def_max?: InputMaybe<Scalars['Int']['input']>;
+  def_min?: InputMaybe<Scalars['Int']['input']>;
+  hp_max?: InputMaybe<Scalars['Int']['input']>;
+  hp_min?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  spatk_max?: InputMaybe<Scalars['Int']['input']>;
+  spatk_min?: InputMaybe<Scalars['Int']['input']>;
+  spd_max?: InputMaybe<Scalars['Int']['input']>;
+  spd_min?: InputMaybe<Scalars['Int']['input']>;
+  spdef_max?: InputMaybe<Scalars['Int']['input']>;
+  spdef_min?: InputMaybe<Scalars['Int']['input']>;
+  types?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type Query = {
   __typename?: 'Query';
   pokemons?: Maybe<Array<Maybe<Pokemon>>>;
+};
+
+
+export type QueryPokemonsArgs = {
+  input?: InputMaybe<PokemonFilter>;
 };
 
 
@@ -108,6 +130,7 @@ export type ResolversTypes = {
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
   Pokemon: ResolverTypeWrapper<Pokemon>;
+  PokemonFilter: PokemonFilter;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
 };
@@ -118,6 +141,7 @@ export type ResolversParentTypes = {
   ID: Scalars['ID']['output'];
   Int: Scalars['Int']['output'];
   Pokemon: Pokemon;
+  PokemonFilter: PokemonFilter;
   Query: {};
   String: Scalars['String']['output'];
 };
@@ -136,7 +160,7 @@ export type PokemonResolvers<ContextType = any, ParentType extends ResolversPare
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  pokemons?: Resolver<Maybe<Array<Maybe<ResolversTypes['Pokemon']>>>, ParentType, ContextType>;
+  pokemons?: Resolver<Maybe<Array<Maybe<ResolversTypes['Pokemon']>>>, ParentType, ContextType, Partial<QueryPokemonsArgs>>;
 };
 
 export type Resolvers<ContextType = any> = {

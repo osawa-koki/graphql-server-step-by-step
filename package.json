@@ -10,24 +10,32 @@
     "dev": "nodemon --ext ts --exec ts-node --esm ./index.ts",
     "start": "ts-node ./index.ts",
     "type-check": "tsc --noEmit",
-    "codegen": "graphql-codegen --config codegen.ts"
+    "codegen": "graphql-codegen --config codegen.ts",
+    "lint": "eslint --ext .ts .",
+    "lint:fix": "eslint --ext .ts . --fix"
   },
   "dependencies": {
-    "@apollo/server": "^4.9.1",
+    "@apollo/server": "^4.9.5",
     "@graphql-tools/graphql-file-loader": "^8.0.0",
     "@graphql-tools/load": "^8.0.0",
     "@graphql-tools/schema": "^10.0.0",
-    "graphql": "^16.8.0",
+    "graphql": "^16.8.1",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/introspection": "4.0.0",
     "@graphql-codegen/typescript": "4.0.1",
     "@graphql-codegen/typescript-operations": "^4.0.1",
     "@graphql-codegen/typescript-resolvers": "4.0.1",
-    "@types/node": "^20.5.1",
+    "@types/node": "^20.9.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^39.1.1",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-promise": "^6.0.0",
     "nodemon": "^3.0.1",
-    "typescript": "^5.1.6",
-    "@graphql-codegen/introspection": "4.0.0"
+    "typescript": "*"
   }
 }

@@ -29,19 +29,19 @@ export type Pokemon = {
 };
 
 export type PokemonFilter = {
-  atk_max?: InputMaybe<Scalars['Int']['input']>;
-  atk_min?: InputMaybe<Scalars['Int']['input']>;
-  def_max?: InputMaybe<Scalars['Int']['input']>;
-  def_min?: InputMaybe<Scalars['Int']['input']>;
-  hp_max?: InputMaybe<Scalars['Int']['input']>;
-  hp_min?: InputMaybe<Scalars['Int']['input']>;
+  atkMax?: InputMaybe<Scalars['Int']['input']>;
+  atkMin?: InputMaybe<Scalars['Int']['input']>;
+  defMax?: InputMaybe<Scalars['Int']['input']>;
+  defMin?: InputMaybe<Scalars['Int']['input']>;
+  hpMax?: InputMaybe<Scalars['Int']['input']>;
+  hpMin?: InputMaybe<Scalars['Int']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
-  spatk_max?: InputMaybe<Scalars['Int']['input']>;
-  spatk_min?: InputMaybe<Scalars['Int']['input']>;
-  spd_max?: InputMaybe<Scalars['Int']['input']>;
-  spd_min?: InputMaybe<Scalars['Int']['input']>;
-  spdef_max?: InputMaybe<Scalars['Int']['input']>;
-  spdef_min?: InputMaybe<Scalars['Int']['input']>;
+  spatkMax?: InputMaybe<Scalars['Int']['input']>;
+  spatkMin?: InputMaybe<Scalars['Int']['input']>;
+  spdMax?: InputMaybe<Scalars['Int']['input']>;
+  spdMin?: InputMaybe<Scalars['Int']['input']>;
+  spdefMax?: InputMaybe<Scalars['Int']['input']>;
+  spdefMin?: InputMaybe<Scalars['Int']['input']>;
   types?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
@@ -52,7 +52,7 @@ export type Query = {
 
 
 export type QueryPokemonsArgs = {
-  input?: InputMaybe<PokemonFilter>;
+  filter?: InputMaybe<PokemonFilter>;
 };
 
 

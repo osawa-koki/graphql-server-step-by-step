@@ -202,7 +202,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "atk_max",
+            "name": "atkMax",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -214,7 +214,7 @@
             "deprecationReason": null
           },
           {
-            "name": "atk_min",
+            "name": "atkMin",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -226,7 +226,7 @@
             "deprecationReason": null
           },
           {
-            "name": "def_max",
+            "name": "defMax",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -238,7 +238,7 @@
             "deprecationReason": null
           },
           {
-            "name": "def_min",
+            "name": "defMin",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -250,7 +250,7 @@
             "deprecationReason": null
           },
           {
-            "name": "hp_max",
+            "name": "hpMax",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -262,7 +262,7 @@
             "deprecationReason": null
           },
           {
-            "name": "hp_min",
+            "name": "hpMin",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -286,7 +286,7 @@
             "deprecationReason": null
           },
           {
-            "name": "spatk_max",
+            "name": "spatkMax",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -298,7 +298,7 @@
             "deprecationReason": null
           },
           {
-            "name": "spatk_min",
+            "name": "spatkMin",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -310,7 +310,7 @@
             "deprecationReason": null
           },
           {
-            "name": "spd_max",
+            "name": "spdMax",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -322,7 +322,7 @@
             "deprecationReason": null
           },
           {
-            "name": "spd_min",
+            "name": "spdMin",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -334,7 +334,7 @@
             "deprecationReason": null
           },
           {
-            "name": "spdef_max",
+            "name": "spdefMax",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -346,7 +346,7 @@
             "deprecationReason": null
           },
           {
-            "name": "spdef_min",
+            "name": "spdefMin",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -388,7 +388,7 @@
             "description": null,
             "args": [
               {
-                "name": "input",
+                "name": "filter",
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",

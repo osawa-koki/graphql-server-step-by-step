@@ -1,90 +1,90 @@
-import { ApolloServer } from '@apollo/server';
-import { startStandaloneServer } from '@apollo/server/standalone';
+import { ApolloServer } from '@apollo/server'
+import { startStandaloneServer } from '@apollo/server/standalone'
 
-import fs from 'fs/promises';
+import fs from 'fs/promises'
 
-import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
-import { loadSchemaSync } from '@graphql-tools/load';
-import { addResolversToSchema } from '@graphql-tools/schema';
-import { type Pokemon, type PokemonFilter, type Resolvers } from './src/generated/graphql';
+import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader'
+import { loadSchemaSync } from '@graphql-tools/load'
+import { addResolversToSchema } from '@graphql-tools/schema'
+import { type Pokemon, type Resolvers } from './src/generated/graphql';
 
 (async () => {
   const schema = loadSchemaSync('./schemas/**/*.graphql', {
     loaders: [new GraphQLFileLoader()]
   })
 
-  const pokemons: Pokemon[] = await fs.readFile('./data/pokemons.json', 'utf-8').then((data) => JSON.parse(data));
+  const pokemons: Pokemon[] = await fs.readFile('./data/pokemons.json', 'utf-8').then((data) => JSON.parse(data))
 
   const resolvers: Resolvers = {
     Query: {
-      pokemons: (filter: PokemonFilter): Pokemon[] => {
+      pokemons: (_parent, { filter }): Pokemon[] => {
         if (filter == null) {
-          return pokemons;
+          return pokemons
         }
         const {
           name,
           types,
-          hp_min,
-          hp_max,
-          atk_min,
-          atk_max,
-          def_min,
-          def_max,
-          spatk_min,
-          spatk_max,
-          spdef_min,
-          spdef_max,
-          spd_min,
-          spd_max
-        } = filter;
+          hpMin,
+          hpMax,
+          atkMin,
+          atkMax,
+          defMin,
+          defMax,
+          spatkMin,
+          spatkMax,
+          spdefMin,
+          spdefMax,
+          spdMin,
+          spdMax
+        } = filter
         return pokemons.filter((pokemon) => {
-          if (name != null && !pokemon.name.toLowerCase().includes(name.toLowerCase())) {
-            return false;
+          if (name != null && pokemon.name.toLowerCase() !== name.toLowerCase()) {
+            return false
           }
-          if (types != null && !types.every((type) => pokemon.types.includes(type))) {
-            return false;
+          if (types != null && !(types as string[]).every((type) => pokemon.types.includes(type))) {
+            return false
           }
-          if (hp_min != null && pokemon.hp < hp_min) {
-            return false;
+          if (hpMin != null && pokemon.hp < hpMin) {
+            return false
           }
-          if (hp_max != null && pokemon.hp > hp_max) {
-            return false;
+          if (hpMax != null && pokemon.hp > hpMax) {
+            return false
           }
-          if (atk_min != null && pokemon.atk < atk_min) {
-            return false;
+          if (atkMin != null && pokemon.atk < atkMin) {
+            return false
           }
-          if (atk_max != null && pokemon.atk > atk_max) {
-            return false;
+          if (atkMax != null && pokemon.atk > atkMax) {
+            return false
           }
-          if (def_min != null && pokemon.def < def_min) {
-            return false;
+          if (defMin != null && pokemon.def < defMin) {
+            return false
           }
-          if (def_max != null && pokemon.def > def_max) {
-            return false;
+          if (defMax != null && pokemon.def > defMax) {
+            return false
           }
-          if (spatk_min != null && pokemon.spatk < spatk_min) {
-            return false;
+          if (spatkMin != null && pokemon.spatk < spatkMin) {
+            return false
           }
-          if (spatk_max != null && pokemon.spatk > spatk_max) {
-            return false;
+          if (spatkMax != null && pokemon.spatk > spatkMax) {
+            return false
           }
-          if (spdef_min != null && pokemon.spdef < spdef_min) {
-            return false;
+          if (spdefMin != null && pokemon.spdef < spdefMin) {
+            return false
           }
-          if (spdef_max != null && pokemon.spdef > spdef_max) {
-            return false;
+          if (spdefMax != null && pokemon.spdef > spdefMax) {
+            return false
           }
-          if (spd_min != null && pokemon.spd < spd_min) {
-            return false;
+          if (spdMin != null && pokemon.spd < spdMin) {
+            return false
           }
-          if (spd_max != null && pokemon.spd > spd_max) {
-            return false;
+          if (spdMax != null && pokemon.spd > spdMax) {
+            return false
           }
-          return true;
-        });
-      },
-    },
-  };
+          return true
+        })
+      }
+    }
+  }
 
   const schemaWithResolvers = addResolversToSchema({ schema, resolvers })
   const server = new ApolloServer({ schema: schemaWithResolvers })
